@@ -1,0 +1,55 @@
+//
+//  TDBS_Header.pch
+//  TDBaiSi
+//
+//  Created by 谢欣 on 16/5/25.
+//  Copyright © 2016年 Frank. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+/*                 *******# 1 #*******                 */
+#pragma mark - 头文件
+#import "UIView+TDFrame.h"
+#import "UIBarButtonItem+TDItem.h"
+
+
+
+
+/*                *******## 2 ##*******                 */
+#pragma mark - 宏定义
+// 屏幕宽高
+#define ScreenB ([UIScreen mainScreen].bounds)
+#define ScreenW ([UIScreen mainScreen].bounds.size.width)
+#define ScreenH ([UIScreen mainScreen].bounds.size.height)
+#define NavBarH 64
+#define TabBarH 49
+// view的frame
+#define viewFramewidth self.view.frame.size.width
+#define viewFrameHeight self.view.frame.size.height
+// 判断屏幕大小
+#define iphone4 (ScreenH == 480)
+#define iphone5 (ScreenH == 568)
+#define iphone6 (ScreenH == 667)
+#define iphone6P (ScreenH == 736)
+
+// RGB色
+#define TDColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+// 随机色
+#define TDRandomColor TDColor(arc4random_uniform(256), arc4random_uniform(256),arc4random_uniform(256))
+
+
+
+
+/*                *******### 3 ###*******                */
+#pragma mark - 其他设置
+
+#ifdef DEBUG // 处于开发阶段
+#define TDLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define TDLog(...)
+#endif
+
+
+
+#endif
