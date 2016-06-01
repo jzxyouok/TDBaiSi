@@ -24,6 +24,7 @@
 #define ScreenH ([UIScreen mainScreen].bounds.size.height)
 #define NavBarH 64
 #define TabBarH 49
+#define TitlesViewH 35
 // view的frame
 #define viewFramewidth self.view.frame.size.width
 #define viewFrameHeight self.view.frame.size.height

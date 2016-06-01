@@ -39,7 +39,7 @@
     
     //设置字体
     self.numView.textColor = [UIColor grayColor];
-    self.numView.font = [UIFont systemFontOfSize:14];
+    self.numView.font = [UIFont systemFontOfSize:13];
 
 }
 

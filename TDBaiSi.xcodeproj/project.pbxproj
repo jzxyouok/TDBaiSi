@@ -10,6 +10,12 @@
 		1706240D1CFBD29D00283F55 /* TDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1706240B1CFBD29D00283F55 /* TDWebViewController.m */; };
 		1706240E1CFBD29D00283F55 /* TDWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1706240C1CFBD29D00283F55 /* TDWebViewController.xib */; };
 		170624101CFBEAAF00283F55 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1706240F1CFBEAAF00283F55 /* WebKit.framework */; };
+		170A78831CFF04D200F377BD /* TDTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A78821CFF04D200F377BD /* TDTitleButton.m */; };
+		170A788C1CFF0CCA00F377BD /* TDAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A788B1CFF0CCA00F377BD /* TDAllViewController.m */; };
+		170A788F1CFF0CED00F377BD /* TDPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A788E1CFF0CED00F377BD /* TDPictureViewController.m */; };
+		170A78921CFF0D1A00F377BD /* TDVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A78911CFF0D1A00F377BD /* TDVideoViewController.m */; };
+		170A78951CFF0D2E00F377BD /* TDVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A78941CFF0D2E00F377BD /* TDVoiceViewController.m */; };
+		170A78981CFF0D4400F377BD /* TDWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170A78971CFF0D4400F377BD /* TDWordViewController.m */; };
 		17293CF21CF5D58A003E759E /* TDTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17293CF11CF5D58A003E759E /* TDTabBarController.m */; };
 		17293CF51CF5D825003E759E /* TDEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17293CF41CF5D825003E759E /* TDEssenceViewController.m */; };
 		17293CF81CF5D892003E759E /* TDNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17293CF71CF5D892003E759E /* TDNewViewController.m */; };
@@ -66,6 +72,18 @@
 		1706240B1CFBD29D00283F55 /* TDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDWebViewController.m; sourceTree = "<group>"; };
 		1706240C1CFBD29D00283F55 /* TDWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDWebViewController.xib; sourceTree = "<group>"; };
 		1706240F1CFBEAAF00283F55 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		170A78811CFF04D200F377BD /* TDTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTitleButton.h; sourceTree = "<group>"; };
+		170A78821CFF04D200F377BD /* TDTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTitleButton.m; sourceTree = "<group>"; };
+		170A788A1CFF0CCA00F377BD /* TDAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAllViewController.h; sourceTree = "<group>"; };
+		170A788B1CFF0CCA00F377BD /* TDAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAllViewController.m; sourceTree = "<group>"; };
+		170A788D1CFF0CED00F377BD /* TDPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPictureViewController.h; sourceTree = "<group>"; };
+		170A788E1CFF0CED00F377BD /* TDPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPictureViewController.m; sourceTree = "<group>"; };
+		170A78901CFF0D1A00F377BD /* TDVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDVideoViewController.h; sourceTree = "<group>"; };
+		170A78911CFF0D1A00F377BD /* TDVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDVideoViewController.m; sourceTree = "<group>"; };
+		170A78931CFF0D2E00F377BD /* TDVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDVoiceViewController.h; sourceTree = "<group>"; };
+		170A78941CFF0D2E00F377BD /* TDVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDVoiceViewController.m; sourceTree = "<group>"; };
+		170A78961CFF0D4400F377BD /* TDWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDWordViewController.h; sourceTree = "<group>"; };
+		170A78971CFF0D4400F377BD /* TDWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDWordViewController.m; sourceTree = "<group>"; };
 		17293CF01CF5D58A003E759E /* TDTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTabBarController.h; sourceTree = "<group>"; };
 		17293CF11CF5D58A003E759E /* TDTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTabBarController.m; sourceTree = "<group>"; };
 		17293CF31CF5D825003E759E /* TDEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDEssenceViewController.h; sourceTree = "<group>"; };
@@ -164,6 +182,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170A78991CFF0D4F00F377BD /* ChildVc */ = {
+			isa = PBXGroup;
+			children = (
+				170A788A1CFF0CCA00F377BD /* TDAllViewController.h */,
+				170A788B1CFF0CCA00F377BD /* TDAllViewController.m */,
+				170A788D1CFF0CED00F377BD /* TDPictureViewController.h */,
+				170A788E1CFF0CED00F377BD /* TDPictureViewController.m */,
+				170A78901CFF0D1A00F377BD /* TDVideoViewController.h */,
+				170A78911CFF0D1A00F377BD /* TDVideoViewController.m */,
+				170A78931CFF0D2E00F377BD /* TDVoiceViewController.h */,
+				170A78941CFF0D2E00F377BD /* TDVoiceViewController.m */,
+				170A78961CFF0D4400F377BD /* TDWordViewController.h */,
+				170A78971CFF0D4400F377BD /* TDWordViewController.m */,
+			);
+			name = ChildVc;
+			sourceTree = "<group>";
+		};
 		17293CD51CF5D523003E759E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +228,7 @@
 		17293CD71CF5D523003E759E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				170A78991CFF0D4F00F377BD /* ChildVc */,
 				17293CF31CF5D825003E759E /* TDEssenceViewController.h */,
 				17293CF41CF5D825003E759E /* TDEssenceViewController.m */,
 			);
@@ -209,6 +245,8 @@
 		17293CD91CF5D523003E759E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				170A78811CFF04D200F377BD /* TDTitleButton.h */,
+				170A78821CFF04D200F377BD /* TDTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -740,10 +778,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170A78831CFF04D200F377BD /* TDTitleButton.m in Sources */,
+				170A788F1CFF0CED00F377BD /* TDPictureViewController.m in Sources */,
 				175D87BF1CF5B94400FB2719 /* AppDelegate.m in Sources */,
 				174DFCD61CFB1D6800C434AF /* TDSquareCell.m in Sources */,
 				17293CF81CF5D892003E759E /* TDNewViewController.m in Sources */,
 				17293D011CF5D8F6003E759E /* TDPublishViewController.m in Sources */,
+				170A788C1CFF0CCA00F377BD /* TDAllViewController.m in Sources */,
 				17DFBA691CF9C9960004EA45 /* TDADItem.m in Sources */,
 				174DFCCE1CFB111900C434AF /* UITextField+Placeholder.m in Sources */,
 				17FC83D81CF72E30004FEC94 /* TDSettingViewController.m in Sources */,
@@ -756,15 +797,18 @@
 				17FC83D11CF7296C004FEC94 /* TDNavigationController.m in Sources */,
 				17DFBA861CF9FEE00004EA45 /* TDFastLoginView.m in Sources */,
 				174DFCC51CFB02F600C434AF /* TDLoginTextField.m in Sources */,
+				170A78921CFF0D1A00F377BD /* TDVideoViewController.m in Sources */,
 				17293D061CF5DD7D003E759E /* UIImage+TDImage.m in Sources */,
 				17293CF21CF5D58A003E759E /* TDTabBarController.m in Sources */,
 				175D87BC1CF5B94400FB2719 /* main.m in Sources */,
+				170A78951CFF0D2E00F377BD /* TDVoiceViewController.m in Sources */,
 				17C9941D1CFC2CD700A3E797 /* TDFileManager.m in Sources */,
 				174DFCDA1CFB291000C434AF /* TDSquareModel.m in Sources */,
 				17ACAF1F1CFD3DFD00035665 /* TDSubTagViewController.m in Sources */,
 				17DFBA891CF9FEF20004EA45 /* TDFastLoginButton.m in Sources */,
 				17FC83C91CF7197A004FEC94 /* UIView+TDFrame.m in Sources */,
 				17ACAF271CFD405100035665 /* TDSubTagModel.m in Sources */,
+				170A78981CFF0D4400F377BD /* TDWordViewController.m in Sources */,
 				17293CFE1CF5D8DF003E759E /* TDMineViewController.m in Sources */,
 				17DFBA661CF9BFC00004EA45 /* TDHttpTool.m in Sources */,
 				17D1C81D1CF70E45004398FB /* TDTabBar.m in Sources */,

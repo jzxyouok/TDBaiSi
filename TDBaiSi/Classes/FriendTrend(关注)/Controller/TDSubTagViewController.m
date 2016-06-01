@@ -30,6 +30,9 @@ static NSString * const ID1 = @"subTag";
 #pragma mark 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 调整tableView
+    self.tableView.contentInset = UIEdgeInsetsMake(NavBarH , 0, TabBarH, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"TDSubTagCell" bundle:nil] forCellReuseIdentifier:ID1];
@@ -39,6 +42,7 @@ static NSString * const ID1 = @"subTag";
     
     // 加载数据
     [self loadSubTagData];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -86,22 +90,18 @@ static NSString * const ID1 = @"subTag";
 /** 界面设置 */
 - (void)setUpShowingView {
     
-    //1.头部view
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 40)];
-    searchBar.placeholder = @"搜索标签";
-    self.tableView.tableHeaderView = searchBar;
-    self.tableView.tableHeaderView.backgroundColor = [UIColor whiteColor];
-    
-    //2.设置全屏分割线（自定义cell才有效）
+    //1.设置全屏分割线（自定义cell才有效）
 //    self.tableView.separatorInset = UIEdgeInsetsZero;
     //取消系统分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //设置tableView背景色
     self.tableView.backgroundColor = TDColor(215, 215, 215);
     
-    //3.调整tableView
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    //2.设置头部view（*必须放在调整tableView位置之后）
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.td_width, 40)];
+    searchBar.placeholder = @"搜索标签";
+    self.tableView.tableHeaderView = searchBar;
+    self.tableView.tableHeaderView.backgroundColor = [UIColor whiteColor];
     
 }
 
@@ -123,9 +123,8 @@ static NSString * const ID1 = @"subTag";
     if (indexPath.section == 0) {
         //推荐标识（用不同的组cell显示）
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID0];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
         cell.textLabel.textColor = [UIColor grayColor];
-        cell.textLabel.textAlignment = NSTextAlignmentLeft;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
         cell.textLabel.text = @"推荐标签";
@@ -133,6 +132,7 @@ static NSString * const ID1 = @"subTag";
         return cell;
     }
     else {
+        //设置显示数据
         TDSubTagCell *cell = [tableView dequeueReusableCellWithIdentifier:ID1 forIndexPath:indexPath];
         cell.model = self.subtags[indexPath.row];
         
@@ -144,6 +144,7 @@ static NSString * const ID1 = @"subTag";
 }
 
 #pragma mark - UITableViewDelegate
+// 点击单元格
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 点击完成没有阴影效果

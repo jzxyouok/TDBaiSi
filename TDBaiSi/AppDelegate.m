@@ -23,10 +23,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //2.设置根控制器
-//    TDTabBarController *tabBarVc = [[TDTabBarController alloc] init];
-//    self.window.rootViewController = tabBarVc;
-    TDADViewController *adVc = [[TDADViewController alloc] init];
-    self.window.rootViewController = adVc;
+    TDTabBarController *tabBarVc = [[TDTabBarController alloc] init];
+    self.window.rootViewController = tabBarVc;
+//    TDADViewController *adVc = [[TDADViewController alloc] init];
+//    self.window.rootViewController = adVc;
     
     //3.显示主窗口
     [self.window makeKeyAndVisible];

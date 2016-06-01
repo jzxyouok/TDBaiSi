@@ -20,7 +20,7 @@
 //记录显示Vc
 @property (nonatomic, weak) UIViewController *showingVc;
 //容器显示view
-@property (nonatomic, strong) UIView *containView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 @end
 
 @implementation TDFriendTrendViewController
@@ -34,28 +34,17 @@
     // 添加子控制器
     [self setUpChildVc];
     
+    // 设置容器scrollView
+    [self setUpScrollView];
+    
     // 设置导航条内容
     [self setUpNavigationBar];
-}
-
-#pragma mark -------------------
-#pragma mark 监听方法
-// 朋友推荐
-- (void)friendsRecomment {
     
 }
+
 
 #pragma mark -------------------
 #pragma mark 搭建界面
-/** 添加子控制器 */
-- (void)setUpChildVc {
-    
-    TDSubTagViewController *subTagVc = [[TDSubTagViewController alloc] init];
-    [self addChildViewController:subTagVc];
-    [self.view addSubview:subTagVc.view];
-//    [self.containView addSubview:subTagVc.view];
-}
-
 /** 设置导航条 */
 - (void)setUpNavigationBar {
     
@@ -63,11 +52,56 @@
     UIBarButtonItem *leftItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] highImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] target:self action:@selector(friendsRecomment)];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    // 中间
+    // 中间view
     self.navigationItem.titleView = [self setUpTitileView];
+    
+}
+
+/** 添加子控制器 */
+- (void)setUpChildVc {
+    
+    TDSubTagViewController *subTagVc = [[TDSubTagViewController alloc] init];
+    [self addChildViewController:subTagVc];
 
 }
 
+/**
+ *  显示子控制器view
+ */
+- (void)setUpScrollView
+{
+    //0.不要去自动调整scrollView的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //1.创建ScrollView
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor greenColor];
+    scrollView.frame = self.view.bounds;
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+    
+    //2.添加view
+    NSInteger count = self.childViewControllers.count;
+    for (int i = 0; i < count; i++) {
+        UIView *childVcView = self.childViewControllers[i].view;
+        childVcView.frame = CGRectMake(scrollView.td_width * i, 0, scrollView.td_width, scrollView.td_height);
+        [scrollView addSubview:childVcView];
+    }
+    
+    //未登录view
+    TDInviteView *inviteView = [TDInviteView inviteViewView];
+    inviteView.frame = CGRectMake(scrollView.td_width, 0, scrollView.td_width, scrollView.td_height);
+    [scrollView addSubview:inviteView];
+    
+    //3.其他设置
+    scrollView.contentSize = CGSizeMake(scrollView.td_width * 2, 0);
+    scrollView.scrollEnabled = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    
+}
+
+#pragma mark - 标题view
 /** 标题view */
 - (UIView *)setUpTitileView {
     
@@ -104,7 +138,6 @@
         
         //4.根据按钮文字最终确定指示器的位置
         if (i == 0) {
-            btn.selected = YES;
             [btn.titleLabel sizeToFit];
             indictorView.td_width = btn.titleLabel.td_width;
             //宽度确定中心值
@@ -115,15 +148,14 @@
     return titleView;
 }
 
+#pragma mark -------------------
+#pragma mark 监听方法
 // 监听标题按钮点击
 - (void)btnClick:(UIButton *)btn {
-    
-//    [self.containView removeFromSuperview];
-//    [self.showingVc.view removeFromSuperview];
     //移除前面显示的view
-    for (UIView *subView in self.view.subviews) {
-        [subView removeFromSuperview];
-    }
+//    for (UIView *subView in self.view.subviews) {
+//        [subView removeFromSuperview];
+//    }
     
     //指示器View的动画
     [UIView animateWithDuration:0.2 delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:kNilOptions animations:^{
@@ -133,31 +165,21 @@
     
     //点击切换界面
     if (btn.tag == 0) {
-        self.showingVc = self.childViewControllers[0];
-        [self.view addSubview:self.showingVc.view];
-//        [self.containView addSubview:self.showingVc.view];
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+    }
+    if (btn.tag == 1) {
+        self.scrollView.contentOffset = CGPointMake(self.scrollView.td_width, 0);
     }
     
-    if (btn.tag == 1) {
-        TDInviteView *inviteView = [TDInviteView inviteViewView];
-        [self.view addSubview:inviteView];
-//        [self.containView addSubview:inviteView];
-    }
+}
+
+// 朋友推荐
+- (void)friendsRecomment {
+    
 }
 
 #pragma mark -------------------
 #pragma mark 懒加载
-//- (UIView *)containView {
-//    if (!_containView) {
-//        UIView *containView = [[UIView alloc] initWithFrame:CGRectMake(0, NavBarH, ScreenW, ScreenH)];
-//        containView.backgroundColor  = [UIColor redColor];
-//        [self.view addSubview:containView];
-//        _containView = containView;
-//    }
-//
-//    return _containView;
-//}
-
 - (NSArray *)titleData {
     if (!_titleData) {
         _titleData = @[@"订阅", @"关注"];
