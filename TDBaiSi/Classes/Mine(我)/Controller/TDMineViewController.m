@@ -181,6 +181,7 @@ static NSString *const ID = @"mineCell";
     //2.创建collectionView
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 300) collectionViewLayout:layout];
     self.collectionView = collectionView;
+    collectionView.scrollsToTop = NO;
     collectionView.backgroundColor = [UIColor clearColor];
 
     //显示在tableView的底部视图上

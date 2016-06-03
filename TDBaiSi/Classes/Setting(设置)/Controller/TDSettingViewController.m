@@ -56,14 +56,15 @@
 #pragma mark - UITableViewDelegate
 // 返回点击行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //点击完成没有阴影效果
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = NO; // 点击完成没有阴影效果
+    cell.selected = NO;
     
     if (indexPath.section == 1 && indexPath.row == 0) {
         
         [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
         [SVProgressHUD showWithStatus:@"正在清除缓存..."];
-        // 清空缓存
+        //清空缓存
         [TDFileManager removeDirectoryPath:cachePath];
         
         if (self.totalSize == 0)
@@ -76,7 +77,7 @@
         //重新计算
         [self showCacheCell];
         
-        // 刷新表格
+        //刷新表格
 //        [self.tableView reloadData];
     }
     

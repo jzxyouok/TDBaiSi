@@ -14,7 +14,7 @@
 #import "TDVoiceViewController.h"
 #import "TDWordViewController.h"
 
-@interface TDEssenceViewController ()
+@interface TDEssenceViewController () <UIScrollViewDelegate>
 
 //标题容器view
 @property (nonatomic, weak) UIView *titlesView;
@@ -22,6 +22,10 @@
 @property (nonatomic, weak) UIView *indictorView;
 //记录按钮点击
 @property (nonatomic, weak) TDTitleButton *selectButton;
+//容器显示view
+@property (nonatomic, weak) UIScrollView *scrollView;
+//记录子view
+@property (nonatomic, weak) UIScrollView *scrollViewChild;
 @end
 
 @implementation TDEssenceViewController
@@ -37,12 +41,13 @@
     
     // 初始化子控制器
     [self setUpAllChildVc];
-    
     // 设置容器scrollView
     [self setUpScrollView];
-    
     // 设置标题栏
     [self setUpTitlesView];
+    
+    // 初始显示第一个界面
+    [self addChildVcViewIntoScrollView:0];
 }
 
 /*
@@ -67,6 +72,7 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 }
 
+#pragma mark - 内容界面
 /**
  *  添加子控制器
  */
@@ -80,34 +86,30 @@
 }
 
 /**
- *  显示子控制器view
+ *  在scrollView显示子控制器view
  */
 - (void)setUpScrollView
 {
     //0.不要去自动调整scrollView的内边距
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    NSInteger count = self.childViewControllers.count;
     //1.创建ScrollView
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = self.view.bounds;
     scrollView.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:scrollView];
-    
-    //2.添加view
-    NSInteger count = self.childViewControllers.count;
-    for (int i = 0; i < count; i++) {
-        UIView *childVcView = self.childViewControllers[i].view;
-        childVcView.frame = CGRectMake(scrollView.td_width * i, 0, scrollView.td_width, scrollView.td_height);
-//        childVcView.frame = CGRectMake(i * scrollView.xmg_width, 99, scrollView.xmg_width, scrollView.xmg_height - 99 - 49); //错误
-        [scrollView addSubview:childVcView];
-    }
-    
-    //3.其他设置
-    scrollView.contentSize = CGSizeMake(scrollView.td_width * count, 0);
-    scrollView.pagingEnabled = YES;
-//    scrollView.scrollEnabled = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.delegate = self;
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+    
+    //2.其他设置
+    scrollView.contentSize = CGSizeMake(scrollView.td_width * count, 0);
+    // 点击状态栏时,这个scrollView不需要滚动到顶部
+    scrollView.scrollsToTop = NO;
+    scrollView.pagingEnabled = YES;
+//    scrollView.scrollEnabled = NO;
 }
 
 #pragma mark - 标题view
@@ -144,6 +146,7 @@
     
     for (int i = 0; i < count; i++) {
         TDTitleButton *titleButton = [[TDTitleButton alloc] init];
+        titleButton.tag = i;
         [titleButton setTitle:titles[i] forState:UIControlStateNormal];
         [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
@@ -182,19 +185,42 @@
 
 #pragma mark -------------------
 #pragma mark 监听点击
-// 标题按钮
+// 点击标题按钮
 - (void)titleButtonClick:(TDTitleButton *)titleButton
 {
-    //修改按钮状态
+    //1.修改按钮状态
     self.selectButton.selected = NO;
     titleButton.selected = YES;
     self.selectButton = titleButton;
     
-    //下划线View的动画移动
-    [UIView animateWithDuration:0.2 delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:kNilOptions animations:^{
+    NSInteger index = titleButton.tag;
+    //2.下划线View的动画移动
+    [UIView animateWithDuration:0.25 delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:kNilOptions animations:^{
         self.indictorView.td_width = titleButton.titleLabel.td_width;
         self.indictorView.td_centerX = titleButton.td_centerX;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        //3.界面的移动
+        self.scrollView.contentOffset = CGPointMake(index * self.scrollView.td_width, 0);
+//        CGPoint offset = self.scrollView.contentOffset;
+//        offset.x = titleButton.tag * self.scrollView.td_width;
+//        self.scrollView.contentOffset = offset;
+        //4.添加显示的view
+        [self addChildVcViewIntoScrollView:index];
+    }];
+    
+    //5.控制scrollView的scrollsToTop属性
+    /*
+//    for (int i = 0; i < self.childViewControllers.count; i++) {
+//        UIViewController *childVc = self.childViewControllers[i];
+//        // 如果控制器的view没有被创建,跳过
+//        if (!childVc.isViewLoaded) continue;
+//        // 如果控制器的view不是scrollView,就跳过
+//        if (![childVc.view isKindOfClass:[UIScrollView class]]) continue;
+//        // 如果控制器的view是scrollView
+//        UIScrollView *scrollView = (UIScrollView *)childVc.view;
+//        scrollView.scrollsToTop = (i == index);
+//    } 
+     */
     
 }
 
@@ -203,5 +229,45 @@
 {
     NSLog(@"%s", __func__);
 }
+
+
+#pragma mark - UIScrollViewDelegate
+/**
+ *  scrollView滑动完毕的时候调用(速度减为0的时候调用)
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    //滑动scrollView改变按钮
+    NSInteger index = scrollView.contentOffset.x / scrollView.td_width;
+    TDTitleButton *titleButton = self.titlesView.subviews[index];
+    [self titleButtonClick:titleButton];
+}
+
+#pragma mark -------------------
+#pragma mark 其他
+/**
+ *  添加索引所代表的子控制器view到ScrollView中
+ */
+- (void)addChildVcViewIntoScrollView:(NSInteger)index
+{
+    UIViewController *childVc = self.childViewControllers[index];
+    //判断加载过就不加载了
+    if (childVc.isViewLoaded) return;
+//    if (childVc.view.superview) return;
+//    if (childVc.view.window) return;
+//    if ([self.scrollView.subviews containsObject:childVc.view]) return;
+    
+    childVc.view.frame = CGRectMake(self.scrollView.td_width * index, 0, self.scrollView.td_width, self.scrollView.td_height);
+//        childVcView.frame = CGRectMake(i * scrollView.xmg_width, 99, scrollView.xmg_width, scrollView.xmg_height - 99 - 49); //错误
+    
+    //5.控制scrollView的scrollsToTop属性
+    self.scrollViewChild.scrollsToTop = !self.scrollViewChild.scrollsToTop;
+    // 如果控制器的view是scrollView
+    UIScrollView *scrollView = (UIScrollView *)childVc.view;
+    self.scrollViewChild = scrollView;
+    
+    [self.scrollView addSubview:childVc.view];
+
+}
+
 
 @end

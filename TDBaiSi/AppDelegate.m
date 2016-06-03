@@ -16,6 +16,15 @@
 
 @implementation AppDelegate
 
+/**
+ *  可以在这个AppDelegate方法中监听到状态栏的点击
+ */
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if ([touches.anyObject locationInView:nil].y > 20) return;
+    
+//    TDLog(@"点击了状态栏")
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

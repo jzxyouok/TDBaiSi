@@ -33,7 +33,6 @@
 
     // 添加子控制器
     [self setUpChildVc];
-    
     // 设置容器scrollView
     [self setUpScrollView];
     
@@ -57,12 +56,11 @@
     
 }
 
+#pragma mark - 内容界面
 /** 添加子控制器 */
 - (void)setUpChildVc {
-    
     TDSubTagViewController *subTagVc = [[TDSubTagViewController alloc] init];
     [self addChildViewController:subTagVc];
-
 }
 
 /**
@@ -77,18 +75,16 @@
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = [UIColor greenColor];
     scrollView.frame = self.view.bounds;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
-    //2.添加view
-    NSInteger count = self.childViewControllers.count;
-    for (int i = 0; i < count; i++) {
-        UIView *childVcView = self.childViewControllers[i].view;
-        childVcView.frame = CGRectMake(scrollView.td_width * i, 0, scrollView.td_width, scrollView.td_height);
-        [scrollView addSubview:childVcView];
-    }
-    
-    //未登录view
+    //2.1添加view
+    UIView *childVcView = self.childViewControllers[0].view;
+    childVcView.frame = CGRectMake(0, 0, scrollView.td_width, scrollView.td_height);
+    [scrollView addSubview:childVcView];
+    //2.2未登录view
     TDInviteView *inviteView = [TDInviteView inviteViewView];
     inviteView.frame = CGRectMake(scrollView.td_width, 0, scrollView.td_width, scrollView.td_height);
     [scrollView addSubview:inviteView];
@@ -96,13 +92,15 @@
     //3.其他设置
     scrollView.contentSize = CGSizeMake(scrollView.td_width * 2, 0);
     scrollView.scrollEnabled = NO;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
+//    scrollView.scrollsToTop = NO;
+    
     
 }
 
 #pragma mark - 标题view
-/** 标题view */
+/**
+ *  标题view
+ */
 - (UIView *)setUpTitileView {
     
     // 1.容器view
@@ -151,25 +149,16 @@
 #pragma mark -------------------
 #pragma mark 监听方法
 // 监听标题按钮点击
-- (void)btnClick:(UIButton *)btn {
-    //移除前面显示的view
-//    for (UIView *subView in self.view.subviews) {
-//        [subView removeFromSuperview];
-//    }
+- (void)btnClick:(UIButton *)titleButton {
     
     //指示器View的动画
     [UIView animateWithDuration:0.2 delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:kNilOptions animations:^{
-        self.indictorView.td_centerX = btn.td_centerX;
-        self.indictorView.td_width = btn.titleLabel.td_width;
-    } completion:nil];
-    
-    //点击切换界面
-    if (btn.tag == 0) {
-        self.scrollView.contentOffset = CGPointMake(0, 0);
-    }
-    if (btn.tag == 1) {
-        self.scrollView.contentOffset = CGPointMake(self.scrollView.td_width, 0);
-    }
+        self.indictorView.td_centerX = titleButton.td_centerX;
+        self.indictorView.td_width = titleButton.titleLabel.td_width;
+    } completion:^(BOOL finished) {
+        //点击切换界面
+        self.scrollView.contentOffset = CGPointMake(titleButton.tag * self.scrollView.td_width, 0);
+    }];
     
 }
 

@@ -15,15 +15,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJP-Ug-OTs">
                     <rect key="frame" x="54" y="56" width="266" height="92"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="AYv-v7-wQZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="AYv-v7-wQZ">
                             <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4A6-ql-yBf" customClass="TDLoginTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4A6-ql-yBf" customClass="TDLoginTextField">
                             <rect key="frame" x="10" y="0.0" width="256" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-Sd-RRS" customClass="TDLoginTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-Sd-RRS" customClass="TDLoginTextField">
                             <rect key="frame" x="10" y="46" width="256" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -84,15 +84,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRd-YV-Biy">
                     <rect key="frame" x="54" y="56" width="266" height="92"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="xN5-z2-vqu">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="xN5-z2-vqu">
                             <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRV-Jb-9FZ" customClass="TDLoginTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRV-Jb-9FZ" customClass="TDLoginTextField">
                             <rect key="frame" x="10" y="46" width="256" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-R4-xH3" customClass="TDLoginTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-R4-xH3" customClass="TDLoginTextField">
                             <rect key="frame" x="10" y="0.0" width="256" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -123,18 +123,10 @@
                     <state key="normal" title="注册" backgroundImage="loginBtnBg"/>
                     <state key="highlighted" backgroundImage="loginBtnBgClick"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-H2-hIt">
-                    <rect key="frame" x="240" y="243" width="75" height="30"/>
-                    <state key="normal" title="忘记密码？">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="96A-hU-4yF" firstAttribute="centerX" secondItem="Hos-4m-z3z" secondAttribute="centerX" id="EPS-c3-68n"/>
-                <constraint firstItem="7FF-H2-hIt" firstAttribute="top" secondItem="96A-hU-4yF" secondAttribute="bottom" constant="20" id="QRc-BR-SZi"/>
-                <constraint firstItem="7FF-H2-hIt" firstAttribute="trailing" secondItem="96A-hU-4yF" secondAttribute="trailing" id="VWR-Im-iYC"/>
                 <constraint firstItem="CRd-YV-Biy" firstAttribute="centerX" secondItem="Hos-4m-z3z" secondAttribute="centerX" id="Z7k-I7-HzP"/>
                 <constraint firstItem="CRd-YV-Biy" firstAttribute="top" secondItem="Hos-4m-z3z" secondAttribute="top" constant="56" id="abb-wL-FQB"/>
                 <constraint firstItem="96A-hU-4yF" firstAttribute="top" secondItem="CRd-YV-Biy" secondAttribute="bottom" constant="40" id="bJW-52-cki"/>

@@ -10,6 +10,7 @@
 
 /*                 *******# 1 #*******                 */
 #pragma mark - 头文件
+#import "TDConst.h"
 #import "UIView+TDFrame.h"
 #import "UIBarButtonItem+TDItem.h"
 
@@ -22,9 +23,6 @@
 #define ScreenB ([UIScreen mainScreen].bounds)
 #define ScreenW ([UIScreen mainScreen].bounds.size.width)
 #define ScreenH ([UIScreen mainScreen].bounds.size.height)
-#define NavBarH 64
-#define TabBarH 49
-#define TitlesViewH 35
 // view的frame
 #define viewFramewidth self.view.frame.size.width
 #define viewFrameHeight self.view.frame.size.height
@@ -46,11 +44,13 @@
 #pragma mark - 其他设置
 
 #ifdef DEBUG // 处于开发阶段
-#define TDLog(...) NSLog(__VA_ARGS__)
+#define TDFunc NSLog(@"%s", __func__);
+#define TDLog(...) NSLog(__VA_ARGS__);
 #else // 处于发布阶段
 #define TDLog(...)
 #endif
 
-
+//生成plist文件
+#define writeTOPlist(fileName) [responseObject writeToFile:[NSString stringWithFormat:@"/Users/xiexin/Desktop/%@.plist", @#fileName] atomically:YES];
 
 #endif

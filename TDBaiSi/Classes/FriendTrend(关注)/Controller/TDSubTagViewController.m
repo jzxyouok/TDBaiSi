@@ -13,7 +13,7 @@
 #import <MJExtension/MJExtension.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface TDSubTagViewController ()
+@interface TDSubTagViewController () <UISearchBarDelegate>
 
 //模型数组
 @property (nonatomic,strong) NSArray *subtags;
@@ -55,7 +55,8 @@ static NSString * const ID1 = @"subTag";
 }
 
 #pragma mark - 加载数据
-- (void)loadSubTagData {
+- (void)loadSubTagData
+{
     
     //1.创建请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -88,8 +89,8 @@ static NSString * const ID1 = @"subTag";
 #pragma mark -------------------
 #pragma mark 搭建界面
 /** 界面设置 */
-- (void)setUpShowingView {
-    
+- (void)setUpShowingView
+{
     //1.设置全屏分割线（自定义cell才有效）
 //    self.tableView.separatorInset = UIEdgeInsetsZero;
     //取消系统分割线
@@ -100,10 +101,25 @@ static NSString * const ID1 = @"subTag";
     //2.设置头部view（*必须放在调整tableView位置之后）
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.td_width, 40)];
     searchBar.placeholder = @"搜索标签";
+    searchBar.delegate = self;
     self.tableView.tableHeaderView = searchBar;
     self.tableView.tableHeaderView.backgroundColor = [UIColor whiteColor];
     
 }
+
+#pragma mark - UISearchBarDelegate
+//- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+//    searchBar.showsCancelButton = !searchBar.showsCancelButton;
+//    return YES;
+//}
+//
+//- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
+//    return YES;
+//}
+//
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+//    searchBar.showsCancelButton = NO;
+//}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
