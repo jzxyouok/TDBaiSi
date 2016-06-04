@@ -40,6 +40,13 @@ static NSString *const ID = @"mineCell";
     [super viewDidLoad];
 //    self.view.backgroundColor = TDRandomColor;
     
+    // 设置tableView组间距
+    // 如果是分组样式,默认每一组都会有头部和尾部间距
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    // 设置顶部额外滚动区域-25
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    
     // 设置导航条内容
     [self setUpNavigationBar];
     
@@ -49,12 +56,8 @@ static NSString *const ID = @"mineCell";
     // 加载数据
     [self loadMineData];
 
-    // 设置tableView组间距
-    // 如果是分组样式,默认每一组都会有头部和尾部间距
-    self.tableView.sectionHeaderHeight = 0;
-    self.tableView.sectionFooterHeight = 10;
-    // 设置顶部额外滚动区域-25
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
+    // 监听通知
+    [self setupNote];
     
 }
 
@@ -227,6 +230,27 @@ static NSString *const ID = @"mineCell";
 
 }
 
+#pragma mark -------------------
+#pragma mark 监听通知
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)setupNote
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:TDTabBarButtonDidRepeatClickNotification object:nil];
+}
+
+/**
+ *  tabBarButton被重复点击
+ */
+- (void)tabBarButtonDidRepeatClick
+{
+    if (self.view.window == nil) return;
+    
+    NSLog(@"%s", __func__);
+}
 
 #pragma mark -------------------
 #pragma mark SFSafariViewController

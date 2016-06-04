@@ -11,3 +11,9 @@ CGFloat const TitlesViewH = 35;
 
 /** 请求路径 */
 NSString * const TDRequestURL = @"http://api.budejie.com/api/api_open.php";
+
+/** TabBarButton被重复点击的通知 */
+NSString * const TDTabBarButtonDidRepeatClickNotification = @"XMGTabBarButtonDidRepeatClickNotification";
+
+/** TitleButton被重复点击的通知 */
+NSString * const TDTitleButtonDidRepeatClickNotification = @"XMGTitleButtonDidRepeatClickNotification";

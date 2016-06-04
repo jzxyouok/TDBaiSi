@@ -74,6 +74,11 @@
      */
 }
 
+#pragma mark - tabbar的代理方法
+//- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+//{// 这里不需要调用super，因为父类没有实现这个代理方法
+//}
+
 #pragma mark 1
 // 设置所有的子控制器
 - (void)setUpAllChildVc {

@@ -101,6 +101,7 @@ static NSString * const ID1 = @"subTag";
     //2.设置头部view（*必须放在调整tableView位置之后）
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.td_width, 40)];
     searchBar.placeholder = @"搜索标签";
+    searchBar.showsCancelButton = YES;
     searchBar.delegate = self;
     self.tableView.tableHeaderView = searchBar;
     self.tableView.tableHeaderView.backgroundColor = [UIColor whiteColor];
@@ -108,18 +109,13 @@ static NSString * const ID1 = @"subTag";
 }
 
 #pragma mark - UISearchBarDelegate
-//- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-//    searchBar.showsCancelButton = !searchBar.showsCancelButton;
-//    return YES;
-//}
-//
-//- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-//    return YES;
-//}
-//
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-//    searchBar.showsCancelButton = NO;
-//}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

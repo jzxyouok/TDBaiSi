@@ -11,3 +11,9 @@ UIKIT_EXTERN CGFloat const TitlesViewH;
 
 /** 请求路径 */
 UIKIT_EXTERN NSString * const TDRequestURL;
+
+/** TabBarButton被重复点击的通知 */
+UIKIT_EXTERN NSString * const TDTabBarButtonDidRepeatClickNotification;
+
+/** TitleButton被重复点击的通知 */
+UIKIT_EXTERN NSString * const TDTitleButtonDidRepeatClickNotification;

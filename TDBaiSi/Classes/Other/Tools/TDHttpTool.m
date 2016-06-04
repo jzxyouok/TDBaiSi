@@ -7,6 +7,16 @@
 
 @implementation TDHttpTool
 
+//+ (instancetype)shareAFHTTPSessionManager {
+//    
+//    static AFHTTPSessionManager *_instance;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        _instance = [AFHTTPSessionManager manager];
+//    });
+//    return _instance;
+//}
+
 + (NSURLSessionDataTask *)get:(NSString *)url parameters:(NSDictionary *)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure {
    
     //请求管理者

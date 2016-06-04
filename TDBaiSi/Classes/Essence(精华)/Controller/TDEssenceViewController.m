@@ -188,6 +188,11 @@
 // 点击标题按钮
 - (void)titleButtonClick:(TDTitleButton *)titleButton
 {
+    //0
+    if (self.selectButton == titleButton) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:TDTitleButtonDidRepeatClickNotification object:nil];
+    }
+    
     //1.修改按钮状态
     self.selectButton.selected = NO;
     titleButton.selected = YES;
@@ -239,6 +244,10 @@
     //滑动scrollView改变按钮
     NSInteger index = scrollView.contentOffset.x / scrollView.td_width;
     TDTitleButton *titleButton = self.titlesView.subviews[index];
+    
+    // 如果上一次点击的按钮 和 这次想要点击的按钮 相同，直接返回
+    if (self.selectButton == titleButton) return;
+    
     [self titleButtonClick:titleButton];
 }
 
@@ -258,7 +267,7 @@
     
     childVc.view.frame = CGRectMake(self.scrollView.td_width * index, 0, self.scrollView.td_width, self.scrollView.td_height);
 //        childVcView.frame = CGRectMake(i * scrollView.xmg_width, 99, scrollView.xmg_width, scrollView.xmg_height - 99 - 49); //错误
-    
+  
     //5.控制scrollView的scrollsToTop属性
     self.scrollViewChild.scrollsToTop = !self.scrollViewChild.scrollsToTop;
     // 如果控制器的view是scrollView
