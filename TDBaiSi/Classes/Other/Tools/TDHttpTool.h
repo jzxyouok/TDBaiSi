@@ -8,8 +8,8 @@
 
 @interface TDHttpTool : NSObject
 
-/** 创建请求 */
-//+ (instancetype)shareAFHTTPSessionManager;
+/** 创建请求单例 */
++ (AFHTTPSessionManager *)shareAFHTTPSessionManager;
 
 /**
  *  发送一个GET请求

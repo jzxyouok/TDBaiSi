@@ -41,11 +41,11 @@
     
 }
 
-
 #pragma mark -------------------
 #pragma mark 搭建界面
 /** 设置导航条 */
-- (void)setUpNavigationBar {
+- (void)setUpNavigationBar
+{
     
     // 左边
     UIBarButtonItem *leftItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"friendsRecommentIcon"] highImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] target:self action:@selector(friendsRecomment)];
@@ -58,7 +58,8 @@
 
 #pragma mark - 内容界面
 /** 添加子控制器 */
-- (void)setUpChildVc {
+- (void)setUpChildVc
+{
     TDSubTagViewController *subTagVc = [[TDSubTagViewController alloc] init];
     [self addChildViewController:subTagVc];
 }
@@ -101,8 +102,8 @@
 /**
  *  标题view
  */
-- (UIView *)setUpTitileView {
-    
+- (UIView *)setUpTitileView
+{
     // 1.容器view
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW * 0.4, 44)];
     

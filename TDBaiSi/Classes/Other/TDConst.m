@@ -1,5 +1,8 @@
 #import "TDConst.h"
 
+/** 统一的通用间距 */
+CGFloat const TDMargin = 10;
+
 /** 导航栏的最大Y值(底部) */
 CGFloat const NavBarH = 64;
 

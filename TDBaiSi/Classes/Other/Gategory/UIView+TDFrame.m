@@ -10,6 +10,11 @@
 
 @implementation UIView (TDFrame)
 
++ (instancetype)td_viewFromXib
+{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+}
+
 - (void)setTd_x:(CGFloat)td_x {
     CGRect frame = self.frame;
     frame.origin.x = td_x;

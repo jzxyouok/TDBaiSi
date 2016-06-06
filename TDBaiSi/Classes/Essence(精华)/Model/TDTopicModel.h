@@ -8,8 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, TDTopicType) {
+    /** 全部 */
+    TDTopicTypeAll = 1,
+    /** 图片 */
+    TDTopicTypePicture = 10,
+    /** 文字 */
+    TDTopicTypeWord = 29,
+    /** 声音 */
+    TDTopicTypeVoice = 31,
+    /** 视频 */
+    TDTopicTypeVideo = 41
+};
+
 @interface TDTopicModel : NSObject
 
+/** 帖子的类型 */
+@property (nonatomic, assign) NSInteger type;
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
 /** 用户的头像 */
@@ -26,5 +41,16 @@
 @property (nonatomic, assign) NSInteger repost;
 /** 评论数量 */
 @property (nonatomic, assign) NSInteger comment;
+/** 最热评论 */
+@property (nonatomic, strong) NSArray *top_cmt;
+/** 图片的宽度 */
+@property (nonatomic, assign) CGFloat width;
+/** 图片的高度 */
+@property (nonatomic, assign) CGFloat height;
+
+/** 根据当前模型数据计算出来的cell高度 */
+@property (nonatomic, assign) CGFloat cellHeight;
+/** 中间内容的frame */
+@property (nonatomic, assign) CGRect middleF;
 
 @end

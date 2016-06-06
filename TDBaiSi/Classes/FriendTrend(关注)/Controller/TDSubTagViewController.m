@@ -117,6 +117,24 @@ static NSString * const ID1 = @"subTag";
     [searchBar resignFirstResponder];
 }
 
+#pragma mark - UITableViewDelegate
+// 点击单元格
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 点击完成没有阴影效果
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
+}
+
+// 返回单元格高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return 40;
+    }
+    return 60;
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -153,24 +171,6 @@ static NSString * const ID1 = @"subTag";
     
     //（iOS8之后设置分割线）
 //    cell.layoutMargins = UIEdgeInsetsZero;
-}
-
-#pragma mark - UITableViewDelegate
-// 点击单元格
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // 点击完成没有阴影效果
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = NO;
-}
-
-// 返回单元格高度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) {
-        return 40;
-    }
-    return 60;
 }
 
 

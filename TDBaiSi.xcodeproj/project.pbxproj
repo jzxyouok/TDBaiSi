@@ -40,6 +40,8 @@
 		17ACAF271CFD405100035665 /* TDSubTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACAF261CFD405100035665 /* TDSubTagModel.m */; };
 		17ACAF301CFD50C600035665 /* TDInviteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACAF2F1CFD50C600035665 /* TDInviteView.m */; };
 		17ACAF331CFD513E00035665 /* TDInviteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17ACAF321CFD513E00035665 /* TDInviteView.xib */; };
+		17B5C2681D044CF600CA2505 /* TDTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C2661D044CF600CA2505 /* TDTopicCell.m */; };
+		17B5C2691D044CF600CA2505 /* TDTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B5C2671D044CF600CA2505 /* TDTopicCell.xib */; };
 		17C9941D1CFC2CD700A3E797 /* TDFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C9941C1CFC2CD700A3E797 /* TDFileManager.m */; };
 		17C994211CFC5C4D00A3E797 /* TDSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C994201CFC5C4D00A3E797 /* TDSettingViewController.storyboard */; };
 		17D1C81D1CF70E45004398FB /* TDTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D1C81C1CF70E45004398FB /* TDTabBar.m */; };
@@ -61,6 +63,12 @@
 		17DFBA891CF9FEF20004EA45 /* TDFastLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DFBA881CF9FEF20004EA45 /* TDFastLoginButton.m */; };
 		17DFBA8B1CF9FF110004EA45 /* TDLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DFBA8A1CF9FF110004EA45 /* TDLoginRegisterView.xib */; };
 		17DFBA8D1CF9FF280004EA45 /* TDFastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DFBA8C1CF9FF280004EA45 /* TDFastLoginView.xib */; };
+		17F7A2891D05214800B349FE /* TDTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A2881D05214800B349FE /* TDTopicPictureView.m */; };
+		17F7A28C1D05218100B349FE /* TDTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A28B1D05218100B349FE /* TDTopicVideoView.m */; };
+		17F7A28F1D05219A00B349FE /* TDTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F7A28E1D05219A00B349FE /* TDTopicVoiceView.m */; };
+		17F7A2911D0521A800B349FE /* TDTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F7A2901D0521A800B349FE /* TDTopicPictureView.xib */; };
+		17F7A2971D05223F00B349FE /* TDTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F7A2961D05223F00B349FE /* TDTopicVoiceView.xib */; };
+		17F7A2991D0522D400B349FE /* TDTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F7A2981D0522D400B349FE /* TDTopicVideoView.xib */; };
 		17FC64931D019DC9003DD782 /* TDTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC64921D019DC9003DD782 /* TDTopicModel.m */; };
 		17FC83C91CF7197A004FEC94 /* UIView+TDFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC83C81CF7197A004FEC94 /* UIView+TDFrame.m */; };
 		17FC83CC1CF72192004FEC94 /* UIBarButtonItem+TDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC83CB1CF72192004FEC94 /* UIBarButtonItem+TDItem.m */; };
@@ -130,6 +138,9 @@
 		17ACAF2E1CFD50C600035665 /* TDInviteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDInviteView.h; sourceTree = "<group>"; };
 		17ACAF2F1CFD50C600035665 /* TDInviteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDInviteView.m; sourceTree = "<group>"; };
 		17ACAF321CFD513E00035665 /* TDInviteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDInviteView.xib; sourceTree = "<group>"; };
+		17B5C2651D044CF600CA2505 /* TDTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTopicCell.h; sourceTree = "<group>"; };
+		17B5C2661D044CF600CA2505 /* TDTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTopicCell.m; sourceTree = "<group>"; };
+		17B5C2671D044CF600CA2505 /* TDTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDTopicCell.xib; sourceTree = "<group>"; };
 		17C9941B1CFC2CD700A3E797 /* TDFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFileManager.h; sourceTree = "<group>"; };
 		17C9941C1CFC2CD700A3E797 /* TDFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFileManager.m; sourceTree = "<group>"; };
 		17C994201CFC5C4D00A3E797 /* TDSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TDSettingViewController.storyboard; sourceTree = "<group>"; };
@@ -160,6 +171,15 @@
 		17DFBA881CF9FEF20004EA45 /* TDFastLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFastLoginButton.m; sourceTree = "<group>"; };
 		17DFBA8A1CF9FF110004EA45 /* TDLoginRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDLoginRegisterView.xib; sourceTree = "<group>"; };
 		17DFBA8C1CF9FF280004EA45 /* TDFastLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDFastLoginView.xib; sourceTree = "<group>"; };
+		17F7A2871D05214800B349FE /* TDTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTopicPictureView.h; sourceTree = "<group>"; };
+		17F7A2881D05214800B349FE /* TDTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTopicPictureView.m; sourceTree = "<group>"; };
+		17F7A28A1D05218100B349FE /* TDTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTopicVideoView.h; sourceTree = "<group>"; };
+		17F7A28B1D05218100B349FE /* TDTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTopicVideoView.m; sourceTree = "<group>"; };
+		17F7A28D1D05219900B349FE /* TDTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTopicVoiceView.h; sourceTree = "<group>"; };
+		17F7A28E1D05219A00B349FE /* TDTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTopicVoiceView.m; sourceTree = "<group>"; };
+		17F7A2901D0521A800B349FE /* TDTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDTopicPictureView.xib; sourceTree = "<group>"; };
+		17F7A2961D05223F00B349FE /* TDTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDTopicVoiceView.xib; sourceTree = "<group>"; };
+		17F7A2981D0522D400B349FE /* TDTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDTopicVideoView.xib; sourceTree = "<group>"; };
 		17FC64911D019DC9003DD782 /* TDTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTopicModel.h; sourceTree = "<group>"; };
 		17FC64921D019DC9003DD782 /* TDTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTopicModel.m; sourceTree = "<group>"; };
 		17FC83C71CF7197A004FEC94 /* UIView+TDFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TDFrame.h"; sourceTree = "<group>"; };
@@ -253,6 +273,7 @@
 		17293CD91CF5D523003E759E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17B5C2641D0446F200CA2505 /* Cell */,
 				170A78811CFF04D200F377BD /* TDTitleButton.h */,
 				170A78821CFF04D200F377BD /* TDTitleButton.m */,
 			);
@@ -519,6 +540,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		17B5C2641D0446F200CA2505 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				17B5C2651D044CF600CA2505 /* TDTopicCell.h */,
+				17B5C2661D044CF600CA2505 /* TDTopicCell.m */,
+				17B5C2671D044CF600CA2505 /* TDTopicCell.xib */,
+				17F7A2871D05214800B349FE /* TDTopicPictureView.h */,
+				17F7A2881D05214800B349FE /* TDTopicPictureView.m */,
+				17F7A2901D0521A800B349FE /* TDTopicPictureView.xib */,
+				17F7A28D1D05219900B349FE /* TDTopicVoiceView.h */,
+				17F7A28E1D05219A00B349FE /* TDTopicVoiceView.m */,
+				17F7A2961D05223F00B349FE /* TDTopicVoiceView.xib */,
+				17F7A28A1D05218100B349FE /* TDTopicVideoView.h */,
+				17F7A28B1D05218100B349FE /* TDTopicVideoView.m */,
+				17F7A2981D0522D400B349FE /* TDTopicVideoView.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		17C994251CFC76A300A3E797 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,13 +761,17 @@
 				17D854181CF7ECEB0028069A /* LaunchImage-700@2x.png in Resources */,
 				174DFCD21CFB177C00C434AF /* TDMineViewController.storyboard in Resources */,
 				17D8541A1CF7ECEB0028069A /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
+				17F7A2991D0522D400B349FE /* TDTopicVideoView.xib in Resources */,
 				17DFBA801CF9F8440004EA45 /* TDLoginRegisterViewController.xib in Resources */,
 				17D854161CF7ECEB0028069A /* LaunchImage-568h@2x.png in Resources */,
+				17F7A2911D0521A800B349FE /* TDTopicPictureView.xib in Resources */,
 				17D854191CF7ECEB0028069A /* LaunchImage-800-667h@2x.png in Resources */,
 				17D8540D1CF7E6B10028069A /* TDADViewController.xib in Resources */,
 				17C994211CFC5C4D00A3E797 /* TDSettingViewController.storyboard in Resources */,
+				17B5C2691D044CF600CA2505 /* TDTopicCell.xib in Resources */,
 				174DFCD71CFB1D6800C434AF /* TDSquareCell.xib in Resources */,
 				17D8541C1CF7ECEB0028069A /* LaunchImage@2x.png in Resources */,
+				17F7A2971D05223F00B349FE /* TDTopicVoiceView.xib in Resources */,
 				17DFBA8D1CF9FF280004EA45 /* TDFastLoginView.xib in Resources */,
 				17ACAF241CFD404400035665 /* TDSubTagCell.xib in Resources */,
 			);
@@ -800,22 +844,26 @@
 				17FC64931D019DC9003DD782 /* TDTopicModel.m in Sources */,
 				1716F4771CFFC510000F2C72 /* TDConst.m in Sources */,
 				17FC83D81CF72E30004FEC94 /* TDSettingViewController.m in Sources */,
+				17F7A2891D05214800B349FE /* TDTopicPictureView.m in Sources */,
 				1706240D1CFBD29D00283F55 /* TDWebViewController.m in Sources */,
 				17FC83CC1CF72192004FEC94 /* UIBarButtonItem+TDItem.m in Sources */,
 				17293CFB1CF5D8B8003E759E /* TDFriendTrendViewController.m in Sources */,
 				17DFBA7F1CF9F8440004EA45 /* TDLoginRegisterViewController.m in Sources */,
 				17ACAF301CFD50C600035665 /* TDInviteView.m in Sources */,
+				17F7A28C1D05218100B349FE /* TDTopicVideoView.m in Sources */,
 				17293CF51CF5D825003E759E /* TDEssenceViewController.m in Sources */,
 				17FC83D11CF7296C004FEC94 /* TDNavigationController.m in Sources */,
 				17DFBA861CF9FEE00004EA45 /* TDFastLoginView.m in Sources */,
 				174DFCC51CFB02F600C434AF /* TDLoginTextField.m in Sources */,
 				170A78921CFF0D1A00F377BD /* TDVideoViewController.m in Sources */,
 				17293D061CF5DD7D003E759E /* UIImage+TDImage.m in Sources */,
+				17B5C2681D044CF600CA2505 /* TDTopicCell.m in Sources */,
 				17293CF21CF5D58A003E759E /* TDTabBarController.m in Sources */,
 				175D87BC1CF5B94400FB2719 /* main.m in Sources */,
 				170A78951CFF0D2E00F377BD /* TDVoiceViewController.m in Sources */,
 				17C9941D1CFC2CD700A3E797 /* TDFileManager.m in Sources */,
 				174DFCDA1CFB291000C434AF /* TDSquareModel.m in Sources */,
+				17F7A28F1D05219A00B349FE /* TDTopicVoiceView.m in Sources */,
 				17ACAF1F1CFD3DFD00035665 /* TDSubTagViewController.m in Sources */,
 				17DFBA891CF9FEF20004EA45 /* TDFastLoginButton.m in Sources */,
 				17FC83C91CF7197A004FEC94 /* UIView+TDFrame.m in Sources */,

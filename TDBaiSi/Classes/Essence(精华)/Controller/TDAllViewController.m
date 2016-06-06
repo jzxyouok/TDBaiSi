@@ -8,6 +8,7 @@
 
 #import "TDAllViewController.h"
 #import "TDTopicModel.h"
+#import "TDTopicCell.h"
 #import "TDHttpTool.h"
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
@@ -15,7 +16,7 @@
 @interface TDAllViewController ()
 
 //所有的帖子数据
-@property (nonatomic, strong) NSMutableArray *topics;
+@property (nonatomic, strong) NSMutableArray<TDTopicModel *> *topics;
 //用来加载下一页数据的参数
 @property (nonatomic, copy) NSString *maxtime;
 
@@ -32,13 +33,21 @@
 
 @implementation TDAllViewController
 
+#pragma mark -------------------
+#pragma mark 生命周期
+static NSString * const TDTopicCellID = @"TDTopicCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = TDColor(215, 215, 215);
     
     // 0.调整tableView的位置
     self.tableView.contentInset = UIEdgeInsetsMake(NavBarH + TitlesViewH, 0, TabBarH, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset; //滚动条
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.rowHeight = 200;
+    
+    // 注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([TDTopicCell class]) bundle:nil] forCellReuseIdentifier:TDTopicCellID];
     
     // 添加刷新控件
     [self setUpRefresh];
@@ -67,9 +76,7 @@
     [self tabBarButtonDidRepeatClick];
 }
 
-/**
- *  tabBarButton被重复点击
- */
+/** tabBarButton被重复点击 */
 - (void)tabBarButtonDidRepeatClick
 {
     //if (当前控制器的界面不在屏幕正中间) return;
@@ -84,16 +91,32 @@
 
 #pragma mark -------------------
 #pragma mark 加载数据
+/** 数据类型 */
+- (NSInteger)type {
+    return TDTopicTypeVoice;
+}
 /**
  *  加载最新的数据
  */
 - (void)loadNewTopics
 {
+    // 取消请求
+    // 仅仅是取消请求, 不会关闭session
+    //    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    //    [self footerEndRefreshing];
+    
+    // 关闭session并且取消请求(session一旦被关闭了, 这个manager就没法再发送请求)
+    //    [self.manager invalidateSessionCancelingTasks:YES];
+    //    self.manager = nil;
+    
+    [[TDHttpTool shareAFHTTPSessionManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+//    NSLog(@"%@", [TDHttpTool shareAFHTTPSessionManager]);
+    
     //请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @(self.type);
     
     //发送请求
     [TDHttpTool get:TDRequestURL parameters:parameters success:^(id responseObject) {
@@ -130,11 +153,15 @@
  */
 - (void)loadMoreTopics
 {
+    // 取消请求
+    [[TDHttpTool shareAFHTTPSessionManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+//    NSLog(@"%@", [TDHttpTool shareAFHTTPSessionManager]);
+
     //请求参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"type"] = @"31";
+    parameters[@"type"] = @(self.type);
     parameters[@"maxtime"] = self.maxtime;
     
     //发送请求
@@ -237,7 +264,7 @@
 - (void)headerBeginRefreshing
 {
     if (self.isHeaderRefreshing) return;
-    if (self.isFooterRefreshing) return;
+//    if (self.isFooterRefreshing) return;
     
     self.headerRefreshing = YES;
     self.header.text = @"正在刷新数据...";
@@ -356,19 +383,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    
+    TDTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:TDTopicCellID];
+
     // 显示数据
-    TDTopicModel *topicModel = self.topics[indexPath.row];
-    cell.textLabel.text = topicModel.name;
-    cell.detailTextLabel.text = topicModel.text;
+    cell.topicModel = self.topics[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.topics[indexPath.row].cellHeight;
 }
 
 @end

@@ -20,4 +20,7 @@
 @property CGPoint td_origin;
 @property CGSize td_size;
 
+/** 加载xib */
++ (instancetype)td_viewFromXib;
+
 @end

@@ -7,23 +7,21 @@
 
 @implementation TDHttpTool
 
-//+ (instancetype)shareAFHTTPSessionManager {
-//    
-//    static AFHTTPSessionManager *_instance;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        _instance = [AFHTTPSessionManager manager];
-//    });
-//    return _instance;
-//}
+static AFHTTPSessionManager *_instance;
++ (void)load {
+    _instance = [AFHTTPSessionManager manager];
+}
++ (AFHTTPSessionManager *)shareAFHTTPSessionManager {
+    return _instance;
+}
 
 + (NSURLSessionDataTask *)get:(NSString *)url parameters:(NSDictionary *)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure {
    
     //请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
     //发送GET请求
-    NSURLSessionDataTask *dataTask = [mgr GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *dataTask = [_instance GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
             success(responseObject);
         }
@@ -39,10 +37,10 @@
 + (NSURLSessionDataTask *)post:(NSString *)url parameters:(NSDictionary *)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     
     //请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
     //发送POST请求
-    NSURLSessionDataTask *dataTask = [mgr POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *dataTask = [_instance POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
             success(responseObject);
         }
