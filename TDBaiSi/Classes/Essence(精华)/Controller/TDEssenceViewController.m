@@ -17,7 +17,7 @@
 @interface TDEssenceViewController () <UIScrollViewDelegate>
 
 //标题容器view
-@property (nonatomic, weak) UIView *titlesView;
+@property (nonatomic, weak) UIScrollView *titlesView;
 //下划线view
 @property (nonatomic, weak) UIView *indictorView;
 //记录按钮点击
@@ -83,6 +83,12 @@
     [self addChildViewController:[[TDVideoViewController alloc] init]];
     [self addChildViewController:[[TDVoiceViewController alloc] init]];
     [self addChildViewController:[[TDWordViewController alloc] init]];
+    
+    //测试
+    [self addChildViewController:[[UIViewController alloc] init]];
+    [self addChildViewController:[[UIViewController alloc] init]];
+    [self addChildViewController:[[UIViewController alloc] init]];
+    [self addChildViewController:[[UIViewController alloc] init]];
 }
 
 /**
@@ -119,10 +125,12 @@
 - (void)setUpTitlesView
 {
     //1.创建标题容器view
-    UIView *titlesView = [[UIView alloc] init];
+    UIScrollView *titlesView = [[UIScrollView alloc] init];
     self.titlesView = titlesView;
     titlesView.frame = CGRectMake(0, NavBarH, self.view.td_width, TitlesViewH);
     titlesView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    titlesView.showsVerticalScrollIndicator = NO;
+    titlesView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:titlesView];
     
     //2.添加标题按钮
@@ -138,10 +146,10 @@
  */
 - (void)setUpTitleButtons
 {
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子", @"test", @"test", @"test", @"test",];
     
     NSInteger count = titles.count;
-    CGFloat titleButtonW = self.titlesView.td_width / count;
+    CGFloat titleButtonW = self.titlesView.td_width / 5;
     CGFloat titleButtonH = self.titlesView.td_height;
     
     for (int i = 0; i < count; i++) {
@@ -152,6 +160,10 @@
         titleButton.frame = CGRectMake(i * titleButtonW, 0, titleButtonW, titleButtonH);
         [self.titlesView addSubview:titleButton];
     }
+    
+    //标题view的contentSize
+    self.titlesView.contentSize = CGSizeMake(titleButtonW * count, 0);
+    
 }
 
 /**
@@ -179,8 +191,6 @@
     //4.初始点击的按钮
     firstTitleButton.selected = YES;
     self.selectButton = firstTitleButton;
-    
-    
 }
 
 #pragma mark -------------------
@@ -205,10 +215,11 @@
         self.indictorView.td_centerX = titleButton.td_centerX;
     } completion:^(BOOL finished) {
         //3.界面的移动
-        self.scrollView.contentOffset = CGPointMake(index * self.scrollView.td_width, 0);
-//        CGPoint offset = self.scrollView.contentOffset;
-//        offset.x = titleButton.tag * self.scrollView.td_width;
-//        self.scrollView.contentOffset = offset;
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.x = titleButton.tag * self.scrollView.td_width;
+        [self.scrollView setContentOffset:offset animated:YES];
+//        self.scrollView.contentOffset = CGPointMake(index * self.scrollView.td_width, 0);
+
         //4.添加显示的view
         [self addChildVcViewIntoScrollView:index];
     }];
@@ -240,9 +251,28 @@
  *  scrollView滑动完毕的时候调用(速度减为0的时候调用)
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //滑动scrollView改变按钮
+    
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+}
+
+/**
+ *  动画偏移结束调用
+ */
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
     NSInteger index = scrollView.contentOffset.x / scrollView.td_width;
     TDTitleButton *titleButton = self.titlesView.subviews[index];
+    
+    //计算标题view的滚动显示
+    CGPoint titleOffset = self.titlesView.contentOffset;
+    titleOffset.x = titleButton.td_centerX - scrollView.td_width * 0.5;
+    //左边超出处理
+    if (titleOffset.x < 0) titleOffset.x = 0;
+    //右边超出处理
+    CGFloat maxTitleOffsetX = self.titlesView.contentSize.width - scrollView.td_width;
+    if (titleOffset.x > maxTitleOffsetX) titleOffset.x = maxTitleOffsetX;
+    
+    [self.titlesView setContentOffset:titleOffset animated:YES];
     
     // 如果上一次点击的按钮 和 这次想要点击的按钮 相同，直接返回
     if (self.selectButton == titleButton) return;

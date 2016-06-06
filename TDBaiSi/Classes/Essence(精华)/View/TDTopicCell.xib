@@ -145,17 +145,17 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7W-u5-P6q" userLabel="最热评论">
-                        <rect key="frame" x="0.0" y="252.5" width="320" height="55.5"/>
+                        <rect key="frame" x="10" y="252.5" width="300" height="55.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一只小小鸟，叽喳叽喳很快乐，评论评论评论评论评论评论。。。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9II-g0-aml" userLabel="内容">
-                                <rect key="frame" x="0.0" y="19.5" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="19.5" width="300" height="36"/>
                                 <color key="backgroundColor" red="0.014570474624633789" green="0.98975211381912231" blue="0.13175180554389954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fto-L4-raQ" userLabel="标题">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="19.5"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -185,13 +185,13 @@
                     <constraint firstItem="M9V-m1-Shn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ME6-hc-ruP"/>
                     <constraint firstItem="840-L6-DOe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="P98-Bh-jf4"/>
                     <constraint firstItem="QIl-Hg-087" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gUq-9v-OmT"/>
-                    <constraint firstAttribute="trailing" secondItem="j7W-u5-P6q" secondAttribute="trailing" id="gjO-aH-yvD"/>
+                    <constraint firstAttribute="trailing" secondItem="j7W-u5-P6q" secondAttribute="trailing" constant="10" id="gjO-aH-yvD"/>
                     <constraint firstAttribute="trailing" secondItem="M9V-m1-Shn" secondAttribute="trailing" constant="10" id="ku7-JJ-QcI"/>
                     <constraint firstItem="iaV-9x-lC9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mUq-sS-rli"/>
                     <constraint firstItem="840-L6-DOe" firstAttribute="top" secondItem="j7W-u5-P6q" secondAttribute="bottom" id="mph-dd-XRG"/>
                     <constraint firstItem="Yp2-XU-KlM" firstAttribute="bottom" secondItem="QIl-Hg-087" secondAttribute="bottom" id="qfY-yE-qYM"/>
                     <constraint firstAttribute="bottom" secondItem="840-L6-DOe" secondAttribute="bottom" id="sF6-vt-7eX"/>
-                    <constraint firstItem="j7W-u5-P6q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uf4-pQ-3I0"/>
+                    <constraint firstItem="j7W-u5-P6q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="uf4-pQ-3I0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

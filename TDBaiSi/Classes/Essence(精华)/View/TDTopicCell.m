@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
-/* 中间控件 */
+//中间控件
 /** 图片控件 */
 @property (nonatomic, weak) TDTopicPictureView *pictureView;
 /** 声音控件 */
@@ -47,7 +47,7 @@
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
-#pragma mark - 模型数据
+#pragma mark - 模型数据显示
 - (void)setTopicModel:(TDTopicModel *)topicModel {
     _topicModel = topicModel;
     
@@ -76,6 +76,7 @@
             self.voiceView.hidden = NO;
             self.videoView.hidden = YES;
             self.pictureView.hidden = YES;
+            self.voiceView.topicModel = topicModel;
             break;
         }
             

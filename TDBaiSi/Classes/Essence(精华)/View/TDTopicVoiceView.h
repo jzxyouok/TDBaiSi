@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TDTopicModel;
 @interface TDTopicVoiceView : UIView
+
+/** 数据模型 */
+@property (nonatomic, strong) TDTopicModel *topicModel;
 
 @end

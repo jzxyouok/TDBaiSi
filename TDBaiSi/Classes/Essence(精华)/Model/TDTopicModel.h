@@ -47,6 +47,17 @@ typedef NS_ENUM(NSUInteger, TDTopicType) {
 @property (nonatomic, assign) CGFloat width;
 /** 图片的高度 */
 @property (nonatomic, assign) CGFloat height;
+/** 小图 */
+@property (nonatomic, copy) NSString *image0;
+/** 中图 */
+@property (nonatomic, copy) NSString *image2;
+/** 大图 */
+@property (nonatomic, copy) NSString *image1;
+
+/** 播放数量 */
+@property (nonatomic, assign) NSInteger playcount;
+/** 声音文件的长度 */
+@property (nonatomic, assign) NSInteger voicetime;
 
 /** 根据当前模型数据计算出来的cell高度 */
 @property (nonatomic, assign) CGFloat cellHeight;

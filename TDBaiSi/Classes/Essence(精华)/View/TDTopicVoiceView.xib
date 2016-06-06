@@ -7,20 +7,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TDTopicVoiceView">
             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="声音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z42-G6-AcC">
-                    <rect key="frame" x="133" y="89" width="34" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xdR-eJ-dvG">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234播放" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTb-76-vlU">
+                    <rect key="frame" x="235" y="0.0" width="64.5" height="18"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7B-1k-7t6">
+                    <rect key="frame" x="259" y="182" width="41" height="18"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-yf-4xz">
+                    <rect key="frame" x="119" y="137" width="63" height="63"/>
+                    <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
+                    <state key="highlighted" backgroundImage="playButtonClick"/>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.53465056419372559" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="P7B-1k-7t6" secondAttribute="bottom" id="60e-gR-ZO2"/>
+                <constraint firstItem="NaZ-yf-4xz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AHe-Js-pVl"/>
+                <constraint firstAttribute="trailing" secondItem="xdR-eJ-dvG" secondAttribute="trailing" id="Nah-Lm-d6Y"/>
+                <constraint firstItem="xdR-eJ-dvG" firstAttribute="top" secondItem="vTb-76-vlU" secondAttribute="bottom" constant="-18" id="VDa-jd-I4l"/>
+                <constraint firstItem="xdR-eJ-dvG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YZ4-gP-dxc"/>
+                <constraint firstItem="xdR-eJ-dvG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bS2-GA-0Ur"/>
+                <constraint firstAttribute="trailing" secondItem="vTb-76-vlU" secondAttribute="trailing" id="cME-D5-MMw"/>
+                <constraint firstItem="vTb-76-vlU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="e7z-6d-UdS"/>
+                <constraint firstItem="xdR-eJ-dvG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fzI-dd-27e"/>
+                <constraint firstAttribute="bottom" secondItem="xdR-eJ-dvG" secondAttribute="bottom" id="j9H-fS-sTb"/>
+                <constraint firstAttribute="bottom" secondItem="NaZ-yf-4xz" secondAttribute="bottom" id="knM-8V-W4K"/>
+                <constraint firstAttribute="trailing" secondItem="xdR-eJ-dvG" secondAttribute="trailing" id="uz4-NS-P0E"/>
+                <constraint firstAttribute="trailing" secondItem="P7B-1k-7t6" secondAttribute="trailing" id="vuT-Kg-iaH"/>
+                <constraint firstItem="P7B-1k-7t6" firstAttribute="top" secondItem="xdR-eJ-dvG" secondAttribute="bottom" constant="-18" id="zZT-4h-i1U"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="xdR-eJ-dvG" id="JcZ-fP-aHU"/>
+                <outlet property="playcountLabel" destination="vTb-76-vlU" id="lSg-Mf-oqv"/>
+                <outlet property="voicetimeLabel" destination="P7B-1k-7t6" id="Gbj-tQ-m5X"/>
+            </connections>
             <point key="canvasLocation" x="243" y="246"/>
         </view>
     </objects>
+    <resources>
+        <image name="playButton" width="63" height="63"/>
+        <image name="playButtonClick" width="63" height="63"/>
+        <image name="playButtonPlay" width="30" height="30"/>
+    </resources>
 </document>
